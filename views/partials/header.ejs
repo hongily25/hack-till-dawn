@@ -5,6 +5,15 @@
 <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
 <script>
+function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+            console.log(response.authResponse.accessToken);
+        }
+    });
+}
+</script>
+<script>
   window.fbAsyncInit = function() {
     FB.init({
       appId            : '463024380796826',
@@ -13,14 +22,6 @@
       version          : 'v3.0'
     });
     FB.AppEvents.logPageView();  
-    
-    function checkLoginState() {
-        FB.getLoginStatus(function(response) {
-            if (response.status === 'connected') {
-                console.log(response.authResponse.accessToken);
-            }
-        });
-    }
   };
 
   (function(d, s, id){
