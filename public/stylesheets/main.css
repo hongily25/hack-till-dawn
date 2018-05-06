@@ -117,6 +117,7 @@ h2 {
 .resized-pics li {
   opacity: 1;
   display: inline;
+  position: relative;
 }
 
 .resized-pics li:hover {
@@ -126,4 +127,12 @@ h2 {
   -webkit-transition: opacity .5s ease-out;
   -o-transition: opacity .5s ease-out;
   cursor: pointer;
+}
+
+.cancel {
+  position: absolute;
+  top: -70px;
+  right: 2px;
+  color: #FFF;
+  font-size: 25px;
 }

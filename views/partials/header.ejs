@@ -42,12 +42,16 @@ function checkLoginState() {
    }(document, 'script', 'facebook-jssdk'));
 </script>
 <script>
-$(document).ready(function() {
-    $(".cancel").html("<b>Hello!</b>");
 
-    $(".resized-pics > li > img").hover(
-    function(){$(this).toggleClass("cancel");}
-    );
+$(document).ready(function() {
+    $(".resized-pics > li").on('mouseover', function() {
+         $(this).append("<i class='fa fa-times-circle cancel' aria-hidden='true'></i></div>")
+    });
+
+    $(".resized-pics > li").on('mouseout', function() {
+        $(".fa-times-circle").remove();
+    });
+   
 });
 
 </script>
