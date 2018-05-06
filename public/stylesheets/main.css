@@ -93,3 +93,8 @@ h2 {
 .download-btn:active, .download-btn:hover, .download-btn:focus {
   text-decoration: none;
 }
+
+.logged-in {
+  color: #222;
+  font-weight: bold;
+}
