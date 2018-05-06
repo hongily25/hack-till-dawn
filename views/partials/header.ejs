@@ -10,7 +10,7 @@ function checkLoginState() {
     console.log('checking login status');
     FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
-            $('.fb_iframe_widget').text("<p class='logged-in'>Thanks for logging in!</p>");
+            $('.fb_iframe_widget').html("<p class='logged-in'>Thanks for logging in!</p>");
             FB.api('/me', {fields: 'first_name, last_name, picture'}, function(response) {
                 console.log(response);
                 $('#firstName').val(response.first_name);
