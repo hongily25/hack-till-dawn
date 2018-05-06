@@ -95,9 +95,7 @@ h2 {
 }
 
 .logged-in {
-  color: #222;
-  font-weight: bold;
-  margin: 0;
+  margin: 0 !important;
 }
 
 .fb_iframe_widget {
