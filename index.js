@@ -44,14 +44,21 @@ express()
     }
 
     request.post({
+      headers: {
+        'Content-Type': 'application/json'
+      },
       url: 'https://j6bfr3m640.execute-api.us-east-1.amazonaws.com/Prod/recall/api/index-face',
-      formData: formData
+      body: JSON.stringify(formData)
     }, function optionalCallback(err, httpResponse, body) {
       if (err) {
         return console.error('upload failed:', err);
         res.send("sorry there was an error");
       }
-      console.log('Upload successful!  Server responded with:', body);
+      console.log('httpResponse.statusCode', httpResponse.statusCode);
+      
+      var info = JSON.parse(body);
+      var userID = info.UserId;
+      console.log('info', info);
       res.render('pages/db', { firstName: req.body.firstName, lastName: req.body.lastName, fileUrl: req.files.avatar[0].filename, base: imageAsBase64})
     });
 })
