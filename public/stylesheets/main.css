@@ -110,6 +110,20 @@ h2 {
   width: 100%;
 }
 
-.resized-pics > img {
+.resized-pics img {
   max-width: 200px;
+}
+
+.resized-pics li {
+  opacity: 1;
+  display: inline;
+}
+
+.resized-pics li:hover {
+  opacity: .5;
+  transition: opacity .5s ease-out;
+  -moz-transition: opacity .5s ease-out;
+  -webkit-transition: opacity .5s ease-out;
+  -o-transition: opacity .5s ease-out;
+  cursor: pointer;
 }
