@@ -10,15 +10,12 @@ function checkLoginState() {
     console.log('checking login status');
     FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
-            FB.api('/me', {fields: 'first_name, last_name'}, function(response) {
+            FB.api('/me', {fields: 'first_name, last_name, picture'}, function(response) {
                 console.log(response);
                 $('#firstName').val(response.first_name);
                 $('#lastName').val(response.last_name);
             });
 
-            FB.api('/10204306386937773/picture?redirect=false', function(response) {
-                console.log(response);
-            });
             console.log(response.authResponse.accessToken);
         }
     });
