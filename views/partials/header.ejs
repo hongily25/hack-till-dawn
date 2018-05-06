@@ -7,26 +7,11 @@
 <script>
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '463024380796826',
-      cookie     : true,
-      xfbml      : true,
-      version    : 'v3.0'
+      appId            : '463024380796826',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v3.0'
     });
-
-    FB.getLoginStatus(function(response) {
-    if (response.status === 'connected') {
-        console.log('Logged in.');
-    }
-    else {
-        FB.login();
-    }
-    });
-
-    
-      
-    FB.AppEvents.logPageView();   
-}
-      
   };
 
   (function(d, s, id){
