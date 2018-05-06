@@ -6,16 +6,21 @@
 
 <body>
 
-<% include ../partials/nav.ejs %>
-
+<% /* include ../partials/nav.ejs */ %>
+<div style="margin-top:100px"></div> 
 <div class="container">
-<h2>Database Results</h2>
+    <div class="wrapper">
+    <img src="/edc-header.png" style="max-width:800px; margin: 0 auto; display: block">
+        <div class="jumbotron" style="background-color: #FFF">
+            <%= firstName %> - <%= lastName %>
+            <br>
+            <img src="/<%= fileUrl %>">
+            <br><br>
+            <div style="word-wrap: break-word;color: #222"><%= base %></div>
+        </div>
+    </div>
 
-<ul>
-    <% rows.forEach(function(r) { %>
-        <li><%= r.id %> - <%= r.name %></li>
-    <% }); %>
-</ul>
+       
 
 </div>
 

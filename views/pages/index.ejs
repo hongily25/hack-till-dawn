@@ -9,10 +9,25 @@
   <% /* include ../partials/nav.ejs */ %>
 
 <div class="container">
-  <form method="post" enctype="multipart/form-data" action="/upload">
-    <input type="file" name="file">
-    <input type="submit" value="Submit">
-</form>
+  <div class="wrapper">
+    <img src="/edc-header.png" style="max-width:800px; margin: 0 auto; display: block">
+    <div class="jumbotron" style="background-color:#FFF">
+      <div class="form-group">
+        <form method="post" enctype="multipart/form-data" action="/upload">
+        <label for="First Name">First Name</label>
+        <input class="form-control" for="firstName" id="firstName" name="firstName" autofocus>
+        <br>
+         <label for="Last Name">Last Name</label>
+        <input class="form-control" for="lastName" id="lastName" name="lastName" >
+        <br>
+        <input for="file" type="file" name="avatar">
+        <div class="warning-message"><%= message %></div>
+        <br>
+        <input class="form-control btn btn-info" type="submit" value="Submit">
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
 
 </body>

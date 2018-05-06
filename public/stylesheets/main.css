@@ -1,27 +1,73 @@
-.jumbotron {
-  background: #532F8C;
-  color: white;
-  padding-bottom: 80px; }
-  .jumbotron .btn-primary {
-    background: #845ac7;
-    border-color: #845ac7; }
-    .jumbotron .btn-primary:hover {
-      background: #7646c1; }
-  .jumbotron p {
-    color: #d9ccee;
-    max-width: 75%;
-    margin: 1em auto 2em; }
-  .navbar + .jumbotron {
-    margin-top: -20px; }
-  .jumbotron .lang-logo {
-    display: block;
-    background: #B01302;
-    border-radius: 50%;
-    overflow: hidden;
-    width: 100px;
-    height: 100px;
-    margin: auto;
-    border: 2px solid white; }
-    .jumbotron .lang-logo img {
-      max-width: 100%; }
+body {
+  background: #000 url('https://static-label.frontgatetickets.com/label/1613/img/bgimage.jpg') no-repeat top center;
+  font-family: 'Source Sans Pro', sans-serif;
+}
 
+.jumbotron {
+  background: #FFF;
+  color: rgb(79, 80, 81);
+  padding-bottom: 80px;
+}
+
+.jumbotron p {
+  color: rgb(79, 80, 81);
+  max-width: 75%;
+  margin: 1em auto 2em;
+}
+
+.navbar+.jumbotron {
+  margin-top: -20px;
+}
+
+.jumbotron .lang-logo {
+  display: block;
+  background: #B01302;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  border: 2px solid white;
+}
+
+.jumbotron .lang-logo img {
+  max-width: 100%;
+}
+
+label {
+  color: rgb(79, 80, 81);
+  font-size: 20px;
+}
+
+input.form-control { 
+  border: transparent !important;
+  border-color:  transparent !important;
+  border-radius: 0 !important;
+  border-bottom: 1px solid #d7d7d8 !important;
+  transition: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  font-size: 20px !important;
+}
+
+input:focus { 
+  transition: none;
+  outline: none;
+}
+
+input[type=file] {
+  color: rgb(79, 80, 81) !important;
+}
+
+input[type=submit] {
+  font-size: 20px;
+  height: auto;
+}
+
+.warning-message {
+  color: rgb(79, 80, 81) !important;
+}
+
+.container {
+  max-width: 970px !important;
+}
