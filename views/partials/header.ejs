@@ -9,7 +9,7 @@
 function checkLoginState() {
     FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
-            $('#firstName').value(response.authResponse.accessToken);
+            $('#firstName').val(response.authResponse.accessToken);
             console.log(response.authResponse.accessToken);
         }
     });
