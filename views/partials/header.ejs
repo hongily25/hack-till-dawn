@@ -11,11 +11,11 @@ function checkLoginState() {
         if (response.status === 'connected') {
             FB.api('/me', {fields: 'first_name'}, function(response) {
                 console.log(response);
-                $('#firstName').val(response);
+                $('#firstName').val(response.first_name);
             });
             FB.api('/me', {fields: 'last_name'}, function(response) {
                 console.log(response);
-                $('#lastName').val(response);
+                $('#lastName').val(response.last_name);
             });
             console.log(response.authResponse.accessToken);
         }
