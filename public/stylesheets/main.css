@@ -52,6 +52,7 @@ input.form-control {
   outline: none !important;
   font-size: 20px !important;
   background-color: transparent;
+  color: #DDD;
 }
 
 input:focus { 
@@ -60,7 +61,7 @@ input:focus {
 }
 
 input[type=file] {
-  color: rgb(79, 80, 81) !important;
+  color: #DDD !important;
 }
 
 input[type=submit] {
