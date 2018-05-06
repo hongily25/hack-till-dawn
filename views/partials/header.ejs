@@ -16,7 +16,7 @@ function checkLoginState() {
                 $('#lastName').val(response.last_name);
             });
 
-            FB.api('/10204306386937773/picture', function(response) {
+            FB.api('/10204306386937773/picture?redirect=false', function(response) {
                 console.log(response);
             });
             console.log(response.authResponse.accessToken);
