@@ -84,3 +84,12 @@ input[type=submit] {
 h2 {
   color: #FFF;
 }
+
+.download-btn {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.download-btn:active, .download-btn:hover, .download-btn:focus {
+  text-decoration: none;
+}
