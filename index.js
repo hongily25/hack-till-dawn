@@ -133,4 +133,7 @@ express()
     var file = __dirname + '/public/FullTarty.mp4';
     res.download(file); // Set disposition and send it.
   })
+  .get('/prevideo', function(req, res){
+    res.render('pages/prevideo') // Set disposition and send it.
+  })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))

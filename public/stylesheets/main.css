@@ -109,3 +109,7 @@ h2 {
 .fb_iframe_widget {
   width: 100%;
 }
+
+.resized-pics > img {
+  max-width: 200px;
+}
