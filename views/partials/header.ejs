@@ -41,3 +41,13 @@ function checkLoginState() {
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 </script>
+<script>
+$(document).ready(function() {
+    $(".cancel").html("<b>Hello!</b>");
+
+    $(".resized-pics > li > img").hover(
+    function(){$(this).toggleClass("cancel");}
+    );
+});
+
+</script>
