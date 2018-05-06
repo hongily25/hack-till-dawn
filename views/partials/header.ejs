@@ -9,13 +9,13 @@
 function checkLoginState() {
     FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
-            FB.api('/me', {fields: 'first_name'}, function(response) {
+            FB.api('/me', {fields: 'first_name', 'last_name'}, function(response) {
                 console.log(response);
                 $('#firstName').val(response.first_name);
-            });
-            FB.api('/me', {fields: 'last_name'}, function(response) {
-                console.log(response);
                 $('#lastName').val(response.last_name);
+            });
+            FB.api('/profile', {fields: 'cover'}, function(response) {
+                console.log(response);
             });
             console.log(response.authResponse.accessToken);
         }
