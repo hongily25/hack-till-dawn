@@ -97,4 +97,9 @@ h2 {
 .logged-in {
   color: #222;
   font-weight: bold;
+  margin: 0;
+}
+
+.fb_iframe_widget {
+  width: 100%;
 }
