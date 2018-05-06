@@ -7,9 +7,10 @@
 <link rel="shortcut icon" type="image/png" href="/FGT_logo_72x72.png"/>
 <script>
 function checkLoginState() {
+    console.log('checking login status');
     FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
-            FB.api('/me', {fields: 'first_name', 'last_name'}, function(response) {
+            FB.api('/me', {fields: 'first_name, last_name'}, function(response) {
                 console.log(response);
                 $('#firstName').val(response.first_name);
                 $('#lastName').val(response.last_name);
