@@ -13,6 +13,14 @@
       version          : 'v3.0'
     });
     FB.AppEvents.logPageView();  
+    
+    function checkLoginState() {
+        FB.getLoginStatus(function(response) {
+            if (response.status === 'connected') {
+                console.log(response.authResponse.accessToken);
+            }
+        });
+    }
   };
 
   (function(d, s, id){
