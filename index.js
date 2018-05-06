@@ -3,6 +3,8 @@ const path = require('path')
 const request = require('request')
 const PORT = process.env.PORT || 5000
 const multer = require('multer')
+var mongo = require('mongodb')
+var MongoClient = require('mongodb').MongoClient
 var storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, 'public')
@@ -14,6 +16,20 @@ var storage = multer.diskStorage({
 var upload = multer({storage: storage});
 const fs = require('fs')
 var cpUpload = upload.fields([{ name: 'avatar', maxCount: 1 }])
+var userID = 25;
+var url = "mongodb+srv://emily:Kurama!25@cluster0-gygul.mongodb.net/test";
+
+MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  console.log("Database created!");
+  var dbo = db.db("mydb");
+  dbo.createCollection("customers", function(err, res) {
+    if (err) throw err;
+    console.log("Collection created!");
+    db.close();
+  });
+});
+
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
@@ -21,6 +37,38 @@ express()
   .set('view engine', 'ejs')
   .get('/', (req, res) => {
     res.render('pages/index', { message: "", noName: ""})
+  })
+  .get('/user', (req, res) => {
+    MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  var dbo = db.db("mydb");
+  dbo.collection("customers").find({}).toArray(function(err, result) {
+    if (err) throw err;
+    res.send(result);
+    console.log(result);
+    db.close();
+  });
+});
+  })
+  .get('/user/:name', (req,res) => {
+    console.log('req.params.name', req.params.name);
+    var fullName = req.params.name;
+    arrayName = fullName.split(" ");
+    var first = arrayName[0];
+    var last = arrayName[1];
+    if(req.params.name) {
+      MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("mydb");
+        var query = { firstName: first, lastName: last};
+        dbo.collection("customers").find(query).toArray(function(err, result) {
+          if (err) throw err;
+          console.log(result);
+          db.close();
+          res.send(result);
+        });
+      });
+    } else res.send('hello world')
   })
   .post('/upload', cpUpload, function (req, res) {
     console.log('req.body', req.body);
@@ -57,9 +105,21 @@ express()
       console.log('httpResponse.statusCode', httpResponse.statusCode);
       
       var info = JSON.parse(body);
-      var userID = info.UserId;
+      userID = info.UserId;
+
+      MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("mydb");
+        var myobj = { firstName: req.body.firstName, lastName: req.body.lastName, UserId: userID };
+        dbo.collection("customers").insertOne(myobj, function(err, res) {
+          if (err) throw err;
+          console.log("1 document inserted");
+          db.close();
+        });
+      });
+
       console.log('info', info);
-      res.render('pages/db', { firstName: req.body.firstName, lastName: req.body.lastName, fileUrl: req.files.avatar[0].filename, base: imageAsBase64})
+      res.render('pages/db', { firstName: req.body.firstName, lastName: req.body.lastName, fileUrl: req.files.avatar[0].filename, userID: userID})
     });
 })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
