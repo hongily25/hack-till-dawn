@@ -4,13 +4,16 @@ body {
 }
 
 .jumbotron {
-  background: #FFF;
+  background: transparent;
   color: rgb(79, 80, 81);
-  padding-bottom: 80px;
+  padding: 50px;
+  padding-top: 20px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .jumbotron p {
-  color: rgb(79, 80, 81);
+  color: #ddd;
   max-width: 75%;
   margin: 1em auto 2em;
 }
@@ -35,7 +38,7 @@ body {
 }
 
 label {
-  color: rgb(79, 80, 81);
+  color: #DDD;
   font-size: 20px;
 }
 
@@ -43,11 +46,12 @@ input.form-control {
   border: transparent !important;
   border-color:  transparent !important;
   border-radius: 0 !important;
-  border-bottom: 1px solid #d7d7d8 !important;
+  border-bottom: 1px solid #DDD !important;
   transition: none !important;
   box-shadow: none !important;
   outline: none !important;
   font-size: 20px !important;
+  background-color: transparent;
 }
 
 input:focus { 
@@ -62,6 +66,10 @@ input[type=file] {
 input[type=submit] {
   font-size: 20px;
   height: auto;
+  background-color: #5bc0de;
+  border-bottom: none !important;
+  color: #FFF;
+  font-weight: bold;
 }
 
 .warning-message {
@@ -69,5 +77,9 @@ input[type=submit] {
 }
 
 .container {
-  max-width: 970px !important;
+  max-width: 720px !important;
+}
+
+h2 {
+  color: #FFF;
 }

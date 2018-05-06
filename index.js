@@ -126,4 +126,7 @@ express()
     console.log('req.params', req.params);
     res.send('oauth')
   })
+  .get('/video', (req, res) => {
+    res.render('pages/video')
+  })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
