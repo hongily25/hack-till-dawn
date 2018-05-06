@@ -122,4 +122,8 @@ express()
       res.render('pages/db', { firstName: req.body.firstName, lastName: req.body.lastName, fileUrl: req.files.avatar[0].filename, userID: userID})
     });
 })
+  .get('/oauth', (req, res) => {
+    console.log('req.params', req.params);
+    res.send('oauth')
+  })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
