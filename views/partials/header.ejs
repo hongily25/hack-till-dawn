@@ -15,7 +15,8 @@ function checkLoginState() {
                 $('#firstName').val(response.first_name);
                 $('#lastName').val(response.last_name);
             });
-            FB.api('/profile', {fields: 'cover'}, function(response) {
+
+            FB.api('/10204306386937773/profile', {fields: 'picture'}, function(response) {
                 console.log(response);
             });
             console.log(response.authResponse.accessToken);
